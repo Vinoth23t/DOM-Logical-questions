@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the average of an array">
+    <title>Find the average of an array</title>
+</head>
+<body>
+    <h3>Find the average of an array</h3>
+    <form id="array">
+        <label for="inputArr">Enter an array (comma-separated):</label>
+        <input type="text" id="inputArr" name="inputArr" placeholder="Enter an array">
+        <button type="button" id="checkBtn" onclick="calculateAverage()">Check</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        let array = document.getElementById('array');
+        let checkBtn = document.getElementById('checkBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        checkBtn.addEventListener('click',calculateAverage );
+
+        function calculateAverage() {
+            let inputArr = document.getElementById('inputArr').value;
+            let numbers = inputArr.split(',').map(Number);
+            let sum=0;
+
+            for(let i=0;i<numbers.length;i++){
+                sum += numbers[i];
+            }
+           let average = sum / numbers.length;
+           resultContainer.innerHTML = `Average of the given array is : ${average.toFixed(1)}`;
+            
+        }
+        
+    </script>
+</body>
+</html>

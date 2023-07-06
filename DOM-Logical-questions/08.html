@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find largest and smallest odd numbers in an array">
+    <title>Find largest and smallest odd numbers</title>
+</head>
+<body>
+    <h3>Find largest and smallest odd numbers</h3>
+    <form id="input">
+        <label for="inputNumbers">Enter numbers (comma-separated):</label>
+        <input type="text" id="inputNumbers" name="inputNumbers" placeholder="Enter numbers">
+        <button type="button" id="submitBtn" onclick="findLargestAndSmallestOddNumbers()">Submit</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        function findLargestAndSmallestOddNumbers() {
+            let inputNumbers = document.getElementById('inputNumbers').value;
+            let numbers = inputNumbers.split(',').map(num => parseInt(num.trim(), 10));
+            
+            let oddNumbers = numbers.filter(num => num % 2 !== 0);
+            
+            let largestOdd = Math.max(...oddNumbers);
+            let smallestOdd = Math.min(...oddNumbers);
+            
+            let result = `Largest odd number: ${largestOdd}, Smallest odd number: ${smallestOdd}`;
+            document.getElementById('resultContainer').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

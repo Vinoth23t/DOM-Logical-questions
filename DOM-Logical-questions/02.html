@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check if a string is a palindrome">
+    <title>Check Palindrome</title>
+</head>
+<body>
+    <h3>Check Palindrome</h3>
+    <form id="palindromeForm">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString" placeholder="Enter the string">
+        <button type="button" id="checkBtn">Check</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        let palindromeForm = document.getElementById('palindromeForm');
+        let checkBtn = document.getElementById('checkBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        checkBtn.addEventListener('click', checkPalindrome);
+
+        function checkPalindrome() {
+            let inputString = document.getElementById('inputString').value;
+
+            let reversedString = inputString.split('').reverse().join('');
+
+            if (inputString === reversedString) {
+                resultContainer.innerHTML = `<p>${inputString} is a palindrome!</p>`;
+            } else {
+                resultContainer.innerHTML = `<p>${inputString} is not a palindrome.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

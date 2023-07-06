@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check the number of vowels in the given string">
+    <title>Check the number of vowels in the given string</title>
+</head>
+<body>
+    <h3>Number of vowels in the string</h3>
+    <form id="input">
+        <label for="inputList">Enter the string</label>
+        <input type="text" id="inputList" name="inputList" placeholder="Enter the string">
+        <button type="button" id="submitBtn" onclick="calculateVowels()">Submit</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        
+        let submit = document.getElementById('submitBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        submit.addEventListener('click',calculateVowels);
+
+        function calculateVowels() {
+            let inputList = document.getElementById('inputList').value;
+            let vowels = ['a','e','i','o','u','A','E','I','O','U'];
+            let count = 0;
+            for(let i=0;i<inputList.length;i++){
+                if(vowels.includes(inputList[i])){
+                    count++;
+                }
+            }
+
+            
+            resultContainer.innerHTML = `Number of vowels in the string:${count}`;
+        }
+        
+    </script>
+</body>
+</html>

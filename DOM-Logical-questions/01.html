@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate sum, difference, product, and quotient of two numbers">
+    <title>Calculate sum, difference, product, and quotient of two numbers</title>
+</head>
+<body>
+    <h3>Calculate sum, difference, product, and quotient of two numbers</h3>
+    <form id="calculatorForm">
+        <label for="num1">Enter the first number:</label>
+        <input type="number" id="num1" name="num1" placeholder="Enter the value">
+        <label for="num2">Enter the second number:</label>
+        <input type="number" id="num2" name="num2" placeholder="Enter the value">
+        <button type="button" id="calculateBtn">Calculate</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        let calculatorForm = document.getElementById('calculatorForm');
+        let calculateBtn = document.getElementById('calculateBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        calculateBtn.addEventListener('click', calculate);
+
+        function calculate() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultContainer.innerHTML = 'Please enter valid numeric values.';
+                return;
+            }
+
+            let sum = num1 + num2;
+            let difference = num1 - num2;
+            let product = num1 * num2;
+            let quotient = num1 / num2;
+
+            resultContainer.innerHTML = `
+                <p>Sum: ${sum}</p>
+                <p>Difference: ${difference}</p>
+                <p>Product: ${product}</p>
+                <p>Quotient: ${quotient}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

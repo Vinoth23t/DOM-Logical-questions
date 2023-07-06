@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the median of an array">
+    <title>Find the median of an array</title>
+</head>
+<body>
+    <h3>Find the median of an array</h3>
+    <form id="array">
+        <label for="inputArr">Enter an array (comma-separated):</label>
+        <input type="text" id="inputArr" name="inputArr" placeholder="Enter an array">
+        <button type="button" id="checkBtn" onclick="findMedian()">Check</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        let array = document.getElementById('array');
+        let checkBtn = document.getElementById('checkBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        checkBtn.addEventListener('click',findMedian );
+
+        function findMedian() {
+            let inputArr = document.getElementById('inputArr').value;
+            let arr = inputArr.split(',').map(Number);
+
+            arr.sort((a,b)=>a-b);
+            let num = arr.length;
+            let median;
+            if(num % 2 != 0){
+                median = arr[Math.floor(num / 2)];
+            }else{
+                let midIndex = num / 2;
+                median = (arr[midIndex - 1] + arr[midIndex]) / 2;
+            }
+           resultContainer.innerHTML = `Median of the given array is : ${median}`;
+            
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Remove duplicate item from the list">
+    <title>Remove duplicate item from the list</title>
+</head>
+<body>
+    <h3>Remove duplicate item from the list</h3>
+    <form id="input">
+        <label for="inputList">Enter the list (comma-separated):</label>
+        <input type="text" id="inputList" name="inputList" placeholder="Enter the list">
+        <button type="button" id="submitBtn" onclick="removeDuplicateItem()">Submit</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        
+        let submit = document.getElementById('submitBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        submit.addEventListener('click',removeDuplicateItem);
+
+        function removeDuplicateItem() {
+            let inputList = document.getElementById('inputList').value;
+            let items = inputList.split(',');
+            
+            let uniqueItems = Array.from(new Set(items)).map(item => item.trim());
+            let result = uniqueItems.join(', ');
+
+        resultContainer.innerHTML = `Unique list items: ${result}`;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Select random item from the list">
+    <title>Select random item from the list</title>
+</head>
+<body>
+    <h3>Random item Selector</h3>
+    <form id="input">
+        <label for="inputList">Enter an array (comma-separated):</label>
+        <input type="text" id="inputList" name="inputList" placeholder="Enter the list">
+        <button type="button" id="submitBtn" onclick="randomItem()">Submit</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        
+        let submit = document.getElementById('submitBtn');
+        let resultContainer = document.getElementById('resultContainer');
+
+        submit.addEventListener('click',randomItem);
+
+        function randomItem() {
+            let inputList = document.getElementById('inputList').value;
+            let items = inputList.split(',');
+            let random = Math.floor(Math.random()*items.length);
+            let randomItem = items[random];
+            
+            resultContainer.innerHTML = `Randomly selected item is:${randomItem}`;
+        }
+        
+    </script>
+</body>
+</html>
